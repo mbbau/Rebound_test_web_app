@@ -3,11 +3,11 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title("Esclerometría")
+st.title("Predicción de Resistencia mediante Esclerometría y Machine Learning")
 
-st.write("Esta web app utiliza variables de un hormigón y el resultado de un ensayo esclerométrico" 
+st.write("Esta web app suma más variables del hormigón a los resultados de la Esclerometría" 
          "para obtener una aproximación de la resistencia más precisa que si se utilizara unicamente"
-         "el rebote y una regresión lineal a partir de esta variable.")
+         "el rebote y una regresión lineal a partir de este.")
 
 st.write("El estudio que dió origen a esta web app puede encontrarse en el siguiente [repositorio](https://github.com/mbbau/About-rebound-test-and-its-models-of-prediction)")
 
@@ -25,7 +25,13 @@ Especificada = st.sidebar.selectbox("Resistencia Especificada", options = ["13",
 Piedra = st.sidebar.selectbox("Tamaño Máximo Nominal", options = ["12", "19", "25", "30"])
 
 st.subheader("Variables Nuevas")
-st.write("Las variables ingresadas por el usuario son: {}".format([Rebote, Edad, Cemento, Paston, Tenor, Especificada, Piedra]))
+st.write("Las variables ingresadas por el usuario son:")
+st.markdown("* *Rebote:* {}".format([Rebote]))
+st.markdown("* *Edad:* {}".format([Edad]))
+st.markdown("* *Cemento:* {}".format([Cemento]))
+st.markdown("* *¿La muestra proviene de un pastón?:* {}".format([Paston]))
+st.markdown("* *Tenor Cemento Teórico:* {}".format([Tenor]))
+st.markdown("* *Resistencia Especificada* {}".format([Especificada])) 
 
 Piedra_12, Piedra_19, Piedra_25, Piedra_30 = 0, 0, 0, 0
 if Piedra == "12":
@@ -83,9 +89,17 @@ st.write("La resistencia en Megapascales estimada del hormigón analizado es: {}
 # Gráficos que caracterizan el nuevo modelo
 st.subheader("Importancia de los parámetros basados en Shapley Values")
 st.write("En el siguiente gráfico, pueden observarse la importancia de las diferentes variables utilizadas para" 
-         "realizar la predicción, basado en el cálculo de SHAP Values.")
+         "realizar la predicción, basado en el cálculo de SHAP Values. Como se puede apreciar, existe una fuerte"
+         "Correlación entre la resistencia y el rebote, pero además, la presencia de las variables extra también arroja"
+         "información sobre la resistencia del hormigón. SHAP (Shapley Additive exPlanations) es un enfoque basado"
+         "en la teoría de juegos que busca explicar los resultado obtenidos por los modelo de machine learning")
+
 st.image("Feature_Shap_Values.png")
+
 st.markdown("Para más información sobre los Shap Values dirigirse a [SHAP](https://shap.readthedocs.io/en/latest/index.html)")
 
 st.subheader("Distribución de valores residuales")
+st.write("A continuación pueden observarse las predicciones obtenidas por el modelo junto con la distribución de" 
+         "residuales obtenida por el mismo. Este gráfico permite establecer la distribución de los errores"
+         "obtenidos por la estimación realizada de la resistencia.")
 st.image("Residuals.png")
