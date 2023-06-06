@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+st.set_page_config(layout="wide")
 st.title("Predicción de Resistencia mediante Esclerometría y Machine Learning")
 
 st.write("Esta web app utiliza un algoritmo de machine learning (XGBoost) para mejorar la predicción de la "
@@ -85,8 +86,9 @@ st.subheader("Predicción de Resistencia")
 
 st.write("La resistencia en Megapascales estimada del hormigón analizado es: {}".format(y_predict))
 
+
 # Gráficos que caracterizan el nuevo modelo
-st.subheader("Importancia de los parámetros basados en Shapley Values")
+st.subheader("Importancia de los parámetros")
 st.write("En el siguiente gráfico, pueden observarse la importancia de las diferentes variables utilizadas para " 
          "realizar la predicción, basado en el cálculo de SHAP Values. Como se puede apreciar, existe una fuerte "
          "Correlación entre la resistencia y el rebote, pero además, la presencia de las variables extra también arroja "
