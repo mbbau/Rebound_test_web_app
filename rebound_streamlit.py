@@ -5,9 +5,8 @@ import numpy as np
 
 st.title("Predicción de Resistencia mediante Esclerometría y Machine Learning")
 
-st.write("Esta web app suma más variables del hormigón a los resultados de la Esclerometría " 
-         "para obtener una aproximación de la resistencia más precisa que si se utilizara unicamente "
-         "el rebote y una regresión lineal a partir de este.")
+st.write("Esta web app utiliza un algoritmo de machine learning (XGBoost) para mejorar la predicción de la "
+         "resistencia del hormigón mediante el uso de un ensayo esclerométrico.")
 
 st.write("El estudio que dió origen a esta web app puede encontrarse en el siguiente [repositorio](https://github.com/mbbau/About-rebound-test-and-its-models-of-prediction)")
 
