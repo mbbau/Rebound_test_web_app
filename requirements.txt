@@ -1,0 +1,8 @@
+matplotlib==3.7.1
+numpy==1.24.3
+pandas==2.0.1
+scikit_learn==1.2.2
+shap==0.41.0
+streamlit==1.22.0
+xgboost==1.7.5
+yellowbrick==1.5

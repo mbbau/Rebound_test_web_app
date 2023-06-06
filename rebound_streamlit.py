@@ -18,18 +18,14 @@ st.sidebar.subheader("Selección de variables")
 
 Rebote = st.sidebar.number_input("Promedio rebote esclerometría", min_value=20, max_value=50)
 Edad = st.sidebar.number_input("Edad del hormigón", min_value=3)
-Cemento = st.sidebar.selectbox("Cemento", 
-                               options = ["Loma Negra", "Holcim", "Avellaneda"])
-Paston = st.sidebar.selectbox("¿Es un pastón de laboratorio?", 
-                              options = ["Si", "No"])
+Cemento = st.sidebar.selectbox("Cemento", options = ["Loma Negra", "Holcim", "Avellaneda"])
+Paston = st.sidebar.selectbox("¿Es un pastón de laboratorio?", options = ["Si", "No"])
 Tenor = st.sidebar.number_input("Tenor cemento teórico", min_value = 300, max_value = 500)
-Especificada = st.sidebar.selectbox("Resistencia Especificada",
-                                    options = ["13", "17", "21", "25", "30", "35"])
-Piedra = st.sidebar.selectbox("Tamaño Máximo Nominal",
-                           options = ["12", "19", "25", "30"])
+Especificada = st.sidebar.selectbox("Resistencia Especificada", options = ["13", "17", "21", "25", "30", "35"])
+Piedra = st.sidebar.selectbox("Tamaño Máximo Nominal", options = ["12", "19", "25", "30"])
 
 st.subheader("Variables Nuevas")
-st.write("Las variables ingresadas por el usuario son: {}".format([Rebote, Cemento, Paston, Tenor, Especificada, Piedra]))
+st.write("Las variables ingresadas por el usuario son: {}".format([Rebote, Edad, Cemento, Paston, Tenor, Especificada, Piedra]))
 
 Piedra_12, Piedra_19, Piedra_25, Piedra_30 = 0, 0, 0, 0
 if Piedra == "12":
@@ -77,11 +73,6 @@ x_nuevo = np.array([[Tenor, Edad, Rebote, Piedra_12, Piedra_19, Piedra_25, Piedr
                      Especificada_13, Especificada_17, Especificada_21, Especificada_25, 
                      Especificada_30, Especificada_35, Paston_No, Paston_Si, 
                      Cemento_Avellaneda, Cemento_Holcim, Cemento_Loma_Negra]])
-#x_predict = pd.DataFrame(x_nuevo, columns=['Tenor' ,'Edad' ,'Rebote' ,'Piedra_12' ,'Piedra_19' ,'Piedra_25' ,'Piedra_30',
-#                                           'Especificada_13' ,'Especificada_17' ,'Especificada_21' ,'Especificada_25',
-#                                           'Especificada_30' ,'Especificada_35' ,'Paston_No' 'Paston_Si',
-#                                           'Cemento_Avellaneda', 'Cemento_Holcim', 'Cemento_Loma_Negra'])
-#st.write(x_predict.head())
 
 y_predict = regressor.predict(x_nuevo)
 
@@ -91,7 +82,8 @@ st.write("La resistencia en Megapascales estimada del hormigón analizado es: {}
 
 # Gráficos que caracterizan el nuevo modelo
 st.subheader("Importancia de los parámetros basados en Shapley Values")
-st.write("En el siguiente gráfico, pueden observarse la importancia de las diferentes variables utilizadas para realizar la predicción.")
+st.write("En el siguiente gráfico, pueden observarse la importancia de las diferentes variables utilizadas para" 
+         "realizar la predicción, basado en el cálculo de SHAP Values.")
 st.image("Feature_Shap_Values.png")
 st.markdown("Para más información sobre los Shap Values dirigirse a [SHAP](https://shap.readthedocs.io/en/latest/index.html)")
 
