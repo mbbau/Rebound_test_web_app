@@ -5,8 +5,8 @@ import numpy as np
 
 st.title("Predicción de Resistencia mediante Esclerometría y Machine Learning")
 
-st.write("Esta web app suma más variables del hormigón a los resultados de la Esclerometría" 
-         "para obtener una aproximación de la resistencia más precisa que si se utilizara unicamente"
+st.write("Esta web app suma más variables del hormigón a los resultados de la Esclerometría " 
+         "para obtener una aproximación de la resistencia más precisa que si se utilizara unicamente "
          "el rebote y una regresión lineal a partir de este.")
 
 st.write("El estudio que dió origen a esta web app puede encontrarse en el siguiente [repositorio](https://github.com/mbbau/About-rebound-test-and-its-models-of-prediction)")
@@ -88,10 +88,10 @@ st.write("La resistencia en Megapascales estimada del hormigón analizado es: {}
 
 # Gráficos que caracterizan el nuevo modelo
 st.subheader("Importancia de los parámetros basados en Shapley Values")
-st.write("En el siguiente gráfico, pueden observarse la importancia de las diferentes variables utilizadas para" 
-         "realizar la predicción, basado en el cálculo de SHAP Values. Como se puede apreciar, existe una fuerte"
-         "Correlación entre la resistencia y el rebote, pero además, la presencia de las variables extra también arroja"
-         "información sobre la resistencia del hormigón. SHAP (Shapley Additive exPlanations) es un enfoque basado"
+st.write("En el siguiente gráfico, pueden observarse la importancia de las diferentes variables utilizadas para " 
+         "realizar la predicción, basado en el cálculo de SHAP Values. Como se puede apreciar, existe una fuerte "
+         "Correlación entre la resistencia y el rebote, pero además, la presencia de las variables extra también arroja "
+         "información sobre la resistencia del hormigón. SHAP (Shapley Additive exPlanations) es un enfoque basado "
          "en la teoría de juegos que busca explicar los resultado obtenidos por los modelo de machine learning")
 
 st.image("Feature_Shap_Values.png")
@@ -99,7 +99,7 @@ st.image("Feature_Shap_Values.png")
 st.markdown("Para más información sobre los Shap Values dirigirse a [SHAP](https://shap.readthedocs.io/en/latest/index.html)")
 
 st.subheader("Distribución de valores residuales")
-st.write("A continuación pueden observarse las predicciones obtenidas por el modelo junto con la distribución de" 
-         "residuales obtenida por el mismo. Este gráfico permite establecer la distribución de los errores"
+st.write("A continuación pueden observarse las predicciones obtenidas por el modelo junto con la distribución de " 
+         "residuales obtenida por el mismo. Este gráfico permite establecer la distribución de los errores "
          "obtenidos por la estimación realizada de la resistencia.")
 st.image("Residuals.png")
