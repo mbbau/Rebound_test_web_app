@@ -27,11 +27,11 @@ Piedra = st.sidebar.selectbox("Tamaño Máximo Nominal", options = ["12", "19", 
 st.subheader("Variables Nuevas")
 st.write("Las variables ingresadas por el usuario son:")
 st.markdown("* *Rebote:* {}".format([Rebote]))
-st.markdown("* *Edad:* {}".format([Edad]))
+st.markdown("* *Edad:* {} en días".format([Edad]))
 st.markdown("* *Cemento:* {}".format([Cemento]))
 st.markdown("* *¿La muestra proviene de un pastón?:* {}".format([Paston]))
-st.markdown("* *Tenor Cemento Teórico:* {}".format([Tenor]))
-st.markdown("* *Resistencia Especificada* {}".format([Especificada])) 
+st.markdown("* *Tenor Cemento Teórico:* {} en kilogramos".format([Tenor]))
+st.markdown("* *Resistencia Especificada* {} en Mepascales".format([Especificada])) 
 
 Piedra_12, Piedra_19, Piedra_25, Piedra_30 = 0, 0, 0, 0
 if Piedra == "12":
