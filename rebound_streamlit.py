@@ -4,21 +4,17 @@ import pandas as pd
 import numpy as np
 
 st.set_page_config(layout="wide")
+st.title("Predicción de Resistencia mediante Esclerometría y Machine Learning")
 
-col1, col2, col3 = st.columns((1,1,1))
-with col3:
-    st.image("Brain Technology_Full color.jpg")
-
-st.title("Esclerometría y Machine Learning")
 st.write("Esta web app utiliza un algoritmo de machine learning (XGBoost) para mejorar la predicción de la "
          "resistencia del hormigón mediante el uso de un ensayo esclerométrico.")
+
 st.write("El estudio que dió origen a esta web app puede encontrarse en el siguiente [repositorio](https://github.com/mbbau/About-rebound-test-and-its-models-of-prediction)")
-st.markdown("**Nota:** Esta aplicación está calibrada para un esclerómetro puntual.")
 
 # Selección de nuevas variables dadas por el usuario. 
 # La lista de variables a entregar por el usuario son: 
 # ["TMN", "As. Obj.","Especificada", "Tenor", "Paston", "Cemento","Edad", "Rebote"]
-st.sidebar.title("Selección de variables")
+st.sidebar.subheader("Selección de variables")
 
 Rebote = st.sidebar.number_input("Promedio rebote esclerometría", min_value=20, max_value=50)
 Edad = st.sidebar.number_input("Edad del hormigón", min_value=3)
@@ -30,13 +26,12 @@ Piedra = st.sidebar.selectbox("Tamaño Máximo Nominal", options = ["12", "19", 
 
 st.subheader("Variables Nuevas")
 st.write("Las variables ingresadas por el usuario son:")
-st.markdown("* **Rebote:** {}".format([Rebote]))
-st.markdown("* **Edad:** {} en días".format([Edad]))
-st.markdown("* **Cemento:** {}".format([Cemento]))
-st.markdown("* **¿La muestra proviene de un pastón?:** {}".format([Paston]))
-st.markdown("* **Tenor Cemento Teórico:** {} en kilogramos".format([Tenor]))
-st.markdown("* **Resistencia Especificada** {} en Mepascales".format([Especificada]))
-st.markdown("* **Tamaño Máximo Nominal** {}".format([Piedra])) 
+st.markdown("* *Rebote:* {}".format([Rebote]))
+st.markdown("* *Edad:* {} en días".format([Edad]))
+st.markdown("* *Cemento:* {}".format([Cemento]))
+st.markdown("* *¿La muestra proviene de un pastón?:* {}".format([Paston]))
+st.markdown("* *Tenor Cemento Teórico:* {} en kilogramos".format([Tenor]))
+st.markdown("* *Resistencia Especificada* {} en Mepascales".format([Especificada])) 
 
 Piedra_12, Piedra_19, Piedra_25, Piedra_30 = 0, 0, 0, 0
 if Piedra == "12":
