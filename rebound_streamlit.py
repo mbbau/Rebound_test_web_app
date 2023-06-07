@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 
 st.set_page_config(layout="wide")
+
 st.title("Predicción de Resistencia mediante Esclerometría y Machine Learning")
 
 st.write("Esta web app utiliza un algoritmo de machine learning (XGBoost) para mejorar la predicción de la "
