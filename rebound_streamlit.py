@@ -9,7 +9,8 @@ col1, col2, col3 = st.columns((1,1,1))
 with col3:
     st.image("Brain Technology_Full color.jpg")
 
-st.title("Esclerometría y Machine Learning")
+st.markdown("# Esclerometría y Machine Learning")
+st.markdown("***")
 
 st.write("Esta web app utiliza un algoritmo de machine learning (XGBoost) para mejorar la predicción de la "
          "resistencia del hormigón mediante el uso de un ensayo esclerométrico.")
@@ -30,6 +31,8 @@ Paston = st.sidebar.selectbox("¿Es un pastón de laboratorio?", options = ["Si"
 Tenor = st.sidebar.number_input("Tenor cemento teórico", min_value = 300, max_value = 500)
 Especificada = st.sidebar.selectbox("Resistencia Especificada", options = ["13", "17", "21", "25", "30", "35"])
 Piedra = st.sidebar.selectbox("Tamaño Máximo Nominal", options = ["12", "19", "25", "30"])
+
+st.markdown("***")
 
 st.subheader("Variables Nuevas")
 st.write("Utilice el panel lateral para seleccionar las variables del hormigón a analizar. "
@@ -90,10 +93,13 @@ x_nuevo = np.array([[Tenor, Edad, Rebote, Piedra_12, Piedra_19, Piedra_25, Piedr
 
 y_predict = int(regressor.predict(x_nuevo))
 
+st.markdown("***")
+
 st.subheader("Predicción de Resistencia")
 
 st.write("La resistencia en Megapascales estimada del hormigón analizado es: {}".format(y_predict))
 
+st.markdown("***")
 
 # Gráficos que caracterizan el nuevo modelo
 st.subheader("Importancia de los parámetros")
@@ -106,6 +112,8 @@ st.write("En el siguiente gráfico, pueden observarse la importancia de las dife
 st.image("Feature_Shap_Values.png")
 
 st.markdown("Para más información sobre los Shap Values dirigirse a [SHAP](https://shap.readthedocs.io/en/latest/index.html)")
+
+st.markdown("***")
 
 st.subheader("Distribución de valores residuales")
 st.write("A continuación pueden observarse las predicciones obtenidas por el modelo junto con la distribución de " 
