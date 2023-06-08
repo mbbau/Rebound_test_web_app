@@ -5,6 +5,10 @@ import numpy as np
 
 st.set_page_config(layout="wide")
 
+col1, col2, col3 = st.columns((1,1,1))
+with col3:
+    st.image("Brain Technology_Full color.jpg")
+
 st.title("Predicción de Resistencia mediante Esclerometría y Machine Learning")
 
 st.write("Esta web app utiliza un algoritmo de machine learning (XGBoost) para mejorar la predicción de la "
