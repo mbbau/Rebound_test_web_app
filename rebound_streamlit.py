@@ -88,7 +88,7 @@ x_nuevo = np.array([[Tenor, Edad, Rebote, Piedra_12, Piedra_19, Piedra_25, Piedr
                      Especificada_30, Especificada_35, Paston_No, Paston_Si, 
                      Cemento_Avellaneda, Cemento_Holcim, Cemento_Loma_Negra]])
 
-y_predict = regressor.predict(x_nuevo)
+y_predict = int(regressor.predict(x_nuevo))
 
 st.subheader("Predicción de Resistencia")
 
