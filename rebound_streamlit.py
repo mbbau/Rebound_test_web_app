@@ -16,7 +16,7 @@ st.write("Esta web app utiliza un algoritmo de machine learning (XGBoost) para m
 
 st.write("El estudio que dió origen a esta web app puede encontrarse en el siguiente [repositorio](https://github.com/mbbau/About-rebound-test-and-its-models-of-prediction)")
 
-st.markdown("**Nota:** La presente web app fue calibrada para un esclerómetro puntual y las predicción serán válidas para el rebote tomado de ese esclerómetro.")
+st.markdown("**Nota:** La presente web app fue calibrada para un esclerómetro puntual y las predicciones serán válidas para el rebote tomado de ese esclerómetro.")
 
 # Selección de nuevas variables dadas por el usuario. 
 # La lista de variables a entregar por el usuario son: 
@@ -32,7 +32,8 @@ Especificada = st.sidebar.selectbox("Resistencia Especificada", options = ["13",
 Piedra = st.sidebar.selectbox("Tamaño Máximo Nominal", options = ["12", "19", "25", "30"])
 
 st.subheader("Variables Nuevas")
-st.write("Las variables ingresadas por el usuario son:")
+st.write("Utilice el panel lateral para seleccionar las variables del hormigón a analizar. "
+         "Las variables ingresadas por el usuario son:")
 st.markdown("* **Rebote:** {}".format([Rebote]))
 st.markdown("* **Edad:** {} en días".format([Edad]))
 st.markdown("* **Cemento:** {}".format([Cemento]))
