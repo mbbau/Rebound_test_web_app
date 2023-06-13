@@ -120,3 +120,16 @@ st.write("A continuación pueden observarse las predicciones obtenidas por el mo
          "residuales obtenida por el mismo. Este gráfico permite establecer la distribución de los errores "
          "obtenidos por la estimación realizada de la resistencia.")
 st.image("Residuals.png")
+
+st.markdown("***")
+
+st.subheader("Comparación de residuales con Regresión Lineal")
+st.write("Tal como puede apreciarse en las figuras siguientes, la distribución de los residuales para el método"
+        "tradicional con el que se utiliza la esclerometría, comparado con el nuevo método, indica una disminución"
+        "en los errores de la estimaciones de la resistencia del hormigón.")
+
+col_1, col_2 = st.columns((1,1))
+with col_1:
+    st.image("Linear_Model_Residuals.png")
+with col_2:
+    st.image("XGBoost_Residuals.png")
